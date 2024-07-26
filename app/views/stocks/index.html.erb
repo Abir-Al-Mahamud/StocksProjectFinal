@@ -1,0 +1,26 @@
+# <h1>My Stocks</h1>
+# <%= link_to 'Add Stock', new_stock_path %>
+# <ul>
+#   <% @stocks.each do |stock| %>
+#     <li>
+#       <%= stock.symbol %>
+#       <%= link_to 'Delete', stock, method: :delete, data: { confirm: 'Are you sure?' } %>
+#     </li>
+#   <% end %>
+# </ul>
+
+<h1>My Stocks</h1>
+<%= link_to 'Add Stock', new_stock_path %>
+<ul>
+  <% @stocks.each do |stock_info| %>
+    <li>
+      <%= stock_info[:stock].symbol %>
+      <% if stock_info[:data] %>
+        - Price: <%= stock_info[:data]['latestPrice'] %>
+      <% else %>
+        - Data not available
+      <% end %>
+      <%= link_to 'Delete', stock_info[:stock], method: :delete, data: { confirm: 'Are you sure?' } %>
+    </li>
+  <% end %>
+</ul>

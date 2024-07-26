@@ -1,0 +1,10 @@
+<h1>Add Stock</h1>
+<%= form_with model: @stock, local: true do |form| %>
+  <div>
+    <%= form.label :symbol %>
+    <%= form.text_field :symbol %>
+  </div>
+  <div>
+    <%= form.submit 'Add Stock' %>
+  </div>
+<% end %>
